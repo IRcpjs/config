@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-for dotfile in Dotfiles/*;do
-    if [ $dotfile = Dotfiles/DotConfig ]; then continue; fi
+for dotfile in DotFiles/*;do
+    if [ $dotfile = DotFiles/DotConfig ]; then continue; fi
     ln -sfnv $PWD/$dotfile $HOME/.${dotfile##*/}
 done
 
