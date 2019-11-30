@@ -1,0 +1,5 @@
+conf.d/*
+completions/*
+functions/*
+fishd.*
+fish_variables

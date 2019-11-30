@@ -1,0 +1,273 @@
+" basic.vim
+"syntax
+syntax enable
+set background=dark
+
+"line number
+set number
+set cursorline
+hi clear Cursorline
+
+"status line
+set laststatus=2
+set showmode
+set showcmd
+set ruler
+
+"backup
+set noswapfile
+set nobackup
+set viminfo=
+set noundofile
+
+"buffer
+set hidden
+set confirm
+
+" wildmenu
+set wildmenu
+set wildmode=longest,full
+
+"indent
+set autoindent
+set smartindent
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+augroup fileTypeIndent
+    autocmd!
+    autocmd FileType ruby setlocal ts=2 sts=2 sw=2
+augroup END
+
+"search
+set hlsearch
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+
+"other
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,enc-jp,sjis
+set fileformats=unix,dos,mac
+set clipboard+=unnamed,unnamedplus
+set backspace=indent,eol,start
+set helplang=ja,en
+set matchtime=1
+set pumheight=10
+set title
+set showmatch
+if has('win32')
+    set shell=powershell.exe
+endif
+
+function EditDotfiles()
+    edit $HOME/.dotfiles
+endfunction
+function EditDotfilesFile()
+    cd $HOME/.dotfiles
+    GFiles
+endfunction
+command! -nargs=0 Ed call EditDotfiles()
+command! -nargs=0 Edf call EditDotfilesFile()
+
+" plugin.vim
+if has('unix')
+    let s:plugPath='$HOME/.vim/autoload/plug.vim'
+    let s:pluginDIR='$HOME/.vim/bundle'
+elseif has('win32')
+    let s:plugPath='$HOME/vimfiles/autoload/plug.vim'
+    let s:pluginDIR='$HOME/vimfiles/bundle/'
+endif
+
+if !filereadable(expand(s:plugPath))
+    if executable("curl")
+        call system("curl -fLo " . expand(s:plugPath) . " --create-dirs
+                    \    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+    elseif executable("wget")
+        call system("wget -o ~/.vim/autoload/plug.vim
+                    \    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+    endif
+endif
+
+if filereadable(expand(s:plugPath))
+    call plug#begin(expand(s:pluginDIR))
+
+    " basic plugins
+    Plug 'vim-jp/vimdoc-ja'
+    Plug 'itchyny/lightline.vim'
+    Plug 'cocopon/vaffle.vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-surround'
+    Plug 'bronson/vim-trailing-whitespace'
+    Plug 'mattn/sonictemplate-vim'
+    Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
+    Plug 'PProvost/vim-ps1'
+
+    " lsp plugins
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
+    Plug 'Shougo/neosnippet.vim'
+    Plug 'Shougo/neosnippet-snippets'
+
+    "external tool linkage plugins
+    if executable('git')
+        Plug 'tpope/vim-fugitive'
+        Plug 'airblade/vim-gitgutter'
+    endif
+    if executable('fzf')
+        Plug 'junegunn/fzf'
+        Plug 'junegunn/fzf.vim'
+    endif
+
+    " on-demand loading: FileType
+    Plug 'tyru/open-browser.vim'
+    Plug 'previm/previm', {'for': 'markdown'}
+    Plug 'elzr/vim-json', {'for': 'json'}
+
+    " colorscheme
+    Plug 'romainl/Apprentice'
+
+    call plug#end()
+endif
+
+" vim-plug expand
+function Vimplug_isPlugged(name)
+    if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
+        return 1
+    else
+        return 0
+    endif
+endfunction
+
+" pluginssetting
+if Vimplug_isPlugged('fzf.vim') && executable('ghq')
+    command! -nargs=0 Fq call fzf#run({
+\       'source': 'ghq list --full-path',
+\       'sink': 'Vaffle',
+\   })
+endif
+
+if Vimplug_isPlugged('neosnippet.vim')
+    if has('unix')
+        let s:vimFilesDir='$HOME/.vim/'
+    elseif has('win32')
+        let s:vimFilesDir='$HOME/vimfiles/'
+    endif
+    let g:neosnippet#snippets_directory=
+                \   expand(s:vimFilesDir) . 'bundle/neosnippet-snippets/snippets,'
+                \ . expand(s:vimFilesDir) . 'snippets'
+    if has('conceal')
+      set conceallevel=2 concealcursor=niv
+    endif
+endif
+
+if Vimplug_isPlugged('vaffle.vim')
+    let g:loaded_netrw = 1
+    let g:loaded_netrwPlugin = 1
+endif
+
+if Vimplug_isPlugged('previm')
+    let g:previm_enable_realtime=1
+endif
+
+if Vimplug_isPlugged('sonictemplate-vim')
+    if has('unix')
+        let g:sonictemplate_vim_template_dir=['$HOME/.vim/templates']
+    elseif has('win32')
+        let g:sonictemplate_vim_template_dir=['$HOME/vimfiles/templates']
+    endif
+endif
+
+if Vimplug_isPlugged('vaffle.vim')
+    let g:vaffle_auto_cd = 1
+    let g:vaffle_open_selected_split_position = 'rightbelow'
+    let g:vaffle_open_selected_vsplit_position = 'rightbelow'
+endif
+
+if Vimplug_isPlugged('vim-lsp')
+    if executable('pyls')
+        augroup lspPyls
+            autocmd!
+            autocmd User lsp_setup call lsp#register_server({
+                        \ 'name': 'pyls',
+                        \ 'cmd': {server_info->['pyls']},
+                        \ 'whitelist': ['python'],
+                        \})
+        augroup END
+    endif
+
+    if executable('clangd')
+        augroup lspClangd
+            autocmd!
+            autocmd User lsp_setup call lsp#register_server({
+                        \ 'name': 'clangd',
+                        \ 'cmd': {server_info->['clangd', '-background-index']},
+                        \ 'whitelist': ['c','cpp','objc','objcpp'],
+                        \})
+        augroup END
+    endif
+
+    if executable('gopls')
+        augroup LspGo
+          au!
+          autocmd User lsp_setup call lsp#register_server({
+              \ 'name': 'go-lang',
+              \ 'cmd': {server_info->['gopls']},
+              \ 'whitelist': ['go'],
+              \ })
+          autocmd FileType go setlocal omnifunc=lsp#complete
+        augroup END
+    endif
+    if Vimplug_isPlugged('asyncomplete.vim') && Vimplug_isPlugged('asyncomplete-neosnippet.vim')
+    call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+                \ 'name': 'neosnippet',
+                \ 'whitelist': ['*'],
+                \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+                \}))
+    endif
+endif
+
+" color.vim
+if Vimplug_isPlugged('Apprentice')
+    colorscheme apprentice
+endif
+
+" keymapping.vim
+" basic mapping
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap Y y$
+nnoremap + <C-a>
+nnoremap - <C-x>
+inoremap jj <esc>
+inoremap っj <esc>
+inoremap <silent><C-a> <esc>A
+
+" plugin mapping
+" QuickRun
+nnoremap <F5>  :QuickRun<CR>
+nnoremap <F4>  :QuickRun -input =@+<CR>
+
+" neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \     "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" fzf.vim
+nnoremap <silent><Space>f :Files<CR>
+nnoremap <silent><Space>g :GFiles<CR>
+
+" vaffle.vim
+nmap ss <Plug>(vaffle-open-selected-split)
+nmap sv <Plug>(vaffle-open-selected-vsplit)

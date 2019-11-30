@@ -1,0 +1,6 @@
+# load local config file for user of only bash
+# if [ -e ~/.localrc ];then source ~/.localrc; fi
+
+if (type fish >/dev/null 2>&1); then
+    exec fish
+fi

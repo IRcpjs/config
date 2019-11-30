@@ -1,0 +1,11 @@
+[core]
+    pager  = less
+    editor = vim
+    quotepath = false
+    autocrlf = false
+[color]
+    ui = auto
+[ghq]
+    root=~/Projects
+[include]
+    path   = .gitconfig.local

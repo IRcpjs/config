@@ -1,0 +1,23 @@
+# Global properties
+separator=true
+separator_block_width=15
+
+# Blocks
+[username]
+color=#f5af19
+command=echo "$USER"
+interval=once
+
+[memory]
+label=MEM 
+command=/usr/lib/i3blocks/memory/memory
+interval=30
+
+[battery2]
+command=/usr/lib/i3blocks/battery2/battery2
+markup=pango
+interval=30
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1

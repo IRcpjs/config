@@ -1,0 +1,6 @@
+rofi.modi:  drun,system:~/.config/rofi/rofi_system.sh
+rofi.sidebar-mode: true
+rofi.hide-scrollbar: true
+rofi.kb-mode-previous: Alt+n
+rofi.kb-mode-next: Alt+p
+rofi.theme: /usr/share/rofi/themes/Arc-Dark.rasi
