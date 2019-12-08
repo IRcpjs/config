@@ -8,8 +8,8 @@ endif
 " }}}
 " plugins {{{
 if empty(glob("$VIMDIR/autoload/plug.vim"))
-    silent !curl -fLo $VIMDIR/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    call system("curl -fLo " . expand("$VIMDIR/autoload/plug.vim") . " --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin(expand("$VIMDIR/bundle"))
@@ -82,8 +82,8 @@ endif
 " colorscheme {{{
 syntax enable
 if empty(glob("$VIMDIR/colors/apprentice.vim"))
-    silent !curl -fLo $VIMDIR/colors/apprentice.vim --create-dirs
-                \   https://raw.githubusercontent.com/romainl/Apprentice/master/colors/apprentice.vim
+    call system("curl -fLo " . expand("$VIMDIR/colors/apprentice.vim") . " --create-dirs
+                \ https://raw.githubusercontent.com/romainl/Apprentice/master/colors/apprentice.vim")
 endif
 colorscheme apprentice
 " }}}
