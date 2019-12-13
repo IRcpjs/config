@@ -28,9 +28,6 @@ alias push="git push origin"
 alias pull="git pull"
 alias fetch="git fetch"
 alias clone="git clone"
-# edit dotfiles
-alias jd="cd ~/.dotfiles"
-alias ed="vim ~/.dotfiles"
 
 # load local config file
 if [ -e $HOME/.localrc ]; source $HOME/.localrc; end
@@ -43,8 +40,4 @@ if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
-end
-
-function fish_user_key_bindings
-    bind \cr peco_select_history
 end
