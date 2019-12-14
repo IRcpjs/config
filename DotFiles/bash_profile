@@ -11,3 +11,5 @@ export PATH=$PATH:/usr/local/sbin:$HOME/.lightcmd
 if [ $(uname) = "Darwin" ]; then
     export PATH=$PATH:$GOPATH/bin:$HOME/Library/Python/3.7/bin
 fi
+
+if [ -e ~/.bashrc ];then source ~/.bashrc;fi
