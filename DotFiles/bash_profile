@@ -7,9 +7,7 @@ export LC_ALL=ja_JP.UTF-8
 export LC_MESSAGES=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/sbin:$HOME/.lightcmd
-if [ $(uname) = "Darwin" ]; then
-    export PATH=$PATH:$GOPATH/bin:$HOME/Library/Python/3.7/bin
-fi
+export PYTHONUSERBASE=$HOME/.local
+export PATH=$PATH:/usr/local/sbin:$HOME/.lightcmd:$GOPATH/bin:$PYTHONUSERBASE/bin
 
 if [ -e ~/.bashrc ];then source ~/.bashrc;fi
