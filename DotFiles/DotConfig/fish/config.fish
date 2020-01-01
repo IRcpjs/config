@@ -1,12 +1,11 @@
 # aliases
 alias :q="exit"
 alias ran="ranger"
-alias py3="python3"
+alias py="python3"
 alias python="python3"
-alias pe="pipenv"
-alias qa="ghq get"
-alias qap="ghq get -p"
-alias vigf="vim -c GFiles"
+alias py3="python3"
+alias pip="pip3"
+alias tp="ping -c 3 google.com"
 # git aliases
 alias g="git"
 alias gst="git status"
