@@ -1,1 +1,19 @@
-include ps1/*.snip
+snippet     alias
+abbr        add alias
+options     head
+    function ${1} { ${2} $args }; Set-Alias ${3} $1
+
+snippet     naalias
+abbr        add alias
+options     head
+    function ${1} { ${2} }; Set-Alias ${3} $1
+
+snippet     envpath
+abbr        setting environment variable
+options     head
+    $env:${1}="${2}"
+
+snippet     aenvpath
+abbr        setting environment variable
+options     head
+    $env:${1}+="${2}"
