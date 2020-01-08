@@ -1,5 +1,7 @@
-# load local config file for user of only bash
-# if [ -e ~/.localrc ];then source ~/.localrc; fi
+[ -z "$PS1" ] && return
+
+# load local config file
+# [ -e ~/.localrc ] && . ~/.localrc
 
 if (type fish >/dev/null 2>&1); then
     exec fish

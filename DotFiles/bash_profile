@@ -10,4 +10,4 @@ export GOPATH=$HOME/go
 export PYTHONUSERBASE=$HOME/.local
 export PATH=$PATH:/usr/local/sbin:$HOME/.lightcmd:$GOPATH/bin:$PYTHONUSERBASE/bin
 
-if [ -e ~/.bashrc ];then source ~/.bashrc;fi
+[ -e ~/.bashrc ] && . ~/.bashrc

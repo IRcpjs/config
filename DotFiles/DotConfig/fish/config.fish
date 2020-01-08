@@ -36,18 +36,22 @@ if [ -e $HOME/.localrc ]; source $HOME/.localrc; end
 function fish_greeting
 end
 
-# [dev: nomodify]
 function git_status_prompt
     set -l git_branch (git branch 2> /dev/null | grep -e '\*' | sed 's/^..\(.*\)/\1/')
     set -l git_diff (git diff)
     set -l git_diff_cached (git diff --cached)
+    set -l git_untracked (git ls-files --full-name --exclude-standard --other (git rev-parse --show-toplevel))
     set_color red
-    if test -n "$git_diff"
+    if test -n "$git_diff" && test -n "$git_untracked"
         echo [(set_color red){$git_branch}: (set_color yellow)"dirty"(set_color red)]
+    else if test -n "$git_diff"
+        echo [(set_color red){$git_branch}: (set_color yellow)"modify"(set_color red)]
+    else if test -n "$git_untracked"
+        echo [(set_color red){$git_branch}: (set_color yellow)"untracked"(set_color red)]
     else if test -n "$git_diff_cached"
         echo [(set_color red){$git_branch}: (set_color green)"staged"(set_color red)]
     else
-        echo [(set_color red){$git_branch}: (set_color brgreen)"nochange"(set_color red)]
+        echo [(set_color red){$git_branch}: (set_color brgreen)"clean"(set_color red)]
     end
 end
 
