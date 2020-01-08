@@ -1,1 +1,36 @@
-include sh/*.snip
+snippet     cmdexist
+abbr        check command exist
+options     head
+    if ${1}(type ${2} >/dev/null 2>&1); then
+        ${3}
+    fi
+
+snippet     cmdexist_double
+abbr        check command exist
+options     head
+    if ${1}(type ${2} >/dev/null 2>&1); then
+        ${3}
+    elif ${4}(type ${5} >/dev/null 2>&1); then
+        ${6}
+    fi
+
+snippet     fileexist
+abbr        check file exist
+options     head
+    if [ ${1} -e ${2} ]; then
+        ${3}
+    fi
+
+snippet     fileexist_double
+abbr        check file exist
+options     head
+    if [ ${1} -e ${2} ]; then
+        ${3}
+    elif [ ${4} -e ${5} ]; then
+        ${6}
+    fi
+
+snippet     download
+abbr        download with curl
+options     head
+    curl -fLo ${1} ${2}
