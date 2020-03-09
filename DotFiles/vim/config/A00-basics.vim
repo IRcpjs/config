@@ -1,37 +1,41 @@
-setglobal number
-setglobal cursorline
-setglobal laststatus=2
-setglobal showcmd
-setglobal noswapfile
-setglobal nobackup
-setglobal viminfo=
-setglobal noundofile
-setglobal hidden
-setglobal confirm
-setglobal wildmenu
-setglobal wildmode=longest,full
-setglobal autoindent
-setglobal smartindent
-setglobal expandtab
-setglobal tabstop=4 softtabstop=4 shiftwidth=4
+set number
+set cursorline
+set laststatus=2
+set showcmd
+set noswapfile
+set nobackup
+set viminfo=
+set noundofile
+set hidden
+set confirm
+set wildmenu
+set wildmode=longest,full
+set autoindent
+set smartindent
+set expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4
 augroup fileTypeIndent
     autocmd!
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2
 augroup END
-setglobal hlsearch
-setglobal ignorecase
-setglobal smartcase
-setglobal nowrapscan
-setglobal incsearch
-setglobal encoding=utf-8
+set hlsearch
+set ignorecase
+set smartcase
+set nowrapscan
+set incsearch
+set encoding=utf-8
 scriptencoding utf-8
-setglobal fileencodings=utf-8,iso-2022-jp,enc-jp,sjis
-setglobal fileformats=unix,dos,mac
-setglobal backspace=indent,eol,start
-setglobal helplang=ja,en
-setglobal matchtime=1
-setglobal pumheight=5
-setglobal title
-setglobal showmatch
-setglobal completeopt+=menuone
+set fileencodings=utf-8,iso-2022-jp,enc-jp,sjis
+set fileformats=unix,dos,mac
+set backspace=indent,eol,start
+set helplang=ja,en
+set matchtime=1
+set pumheight=5
+set title
+set showmatch
+set completeopt+=menuone
 let &shell= g:isWin ? 'powershell.exe' : '/bin/bash'
+augroup specificFile
+    autocmd!
+    autocmd BufNewFile,BufRead ~/.gitconfig.local setlocal filetype=gitconfig
+augroup END

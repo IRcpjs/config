@@ -10,6 +10,7 @@ let g:vaffle_auto_cd = 1
 let g:vaffle_open_selected_split_position = 'rightbelow'
 let g:vaffle_open_selected_vsplit_position = 'rightbelow'
 let g:neosnippet#snippets_directory=expand("$VIMDIR/snippets/")
+let g:neosnippet#disable_runtime_snippets = {'_' : 1,}
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
