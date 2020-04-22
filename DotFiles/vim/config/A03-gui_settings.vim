@@ -1,6 +1,11 @@
 if !has('gui_running')
     finish
 endif
+
+if !exists("g:colors_name") || g:colors_name != "apprentice"
+    colorscheme apprentice
+endif
+setglobal cmdheight=1
 setglobal guioptions+=c
 setglobal guioptions-=m
 setglobal guioptions-=M

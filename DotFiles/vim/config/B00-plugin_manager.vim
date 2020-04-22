@@ -32,4 +32,5 @@ Plug 'junegunn/fzf.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'previm/previm', {'for': 'markdown'}
 Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'mattn/emmet-vim', {'for': 'html'}
 call plug#end()
