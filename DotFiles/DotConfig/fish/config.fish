@@ -6,6 +6,9 @@ alias python="python3"
 alias py3="python3"
 alias pip="pip3"
 alias tp="ping -c 3 google.com"
+alias dock="docker"
+alias dockc="docker-compose"
+
 # git aliases
 alias g="git"
 alias gst="git status"
