@@ -2,6 +2,7 @@ if [ -e $HOME/.config/fish/aliases.fish ]; source $HOME/.config/fish/aliases.fis
 # load local config file
 if [ -e $HOME/.localrc ]; source $HOME/.localrc; end
 
+fish_vi_key_bindings
 # functions
 function fish_greeting
 end
