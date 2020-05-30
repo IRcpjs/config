@@ -1,9 +1,5 @@
 # IRcpjs config files
-## windows
-```
-.\setup.bat
-```
-## macos, linux (bash installed)
+# linux, macos, windows(msys2 or wsl)
 ```
 ./setup.sh
 ```
