@@ -1,20 +1,37 @@
-# aliases
+# default
+alias l="ls"
 alias :q="exit"
-alias ran="ranger"
-alias py="python3"
-alias python="python3"
-alias py3="python3"
-alias pip="pip3"
 alias tp="ping -c 3 google.com"
+
+# external tools
+alias ran="ranger"
+alias v="vim"
+alias vi="vim"
+alias gg="ghq get"
+alias s3="aws s3"
+
+# python
+alias python="python3"
+alias pip="pip3"
+alias py="python3"
+alias pii="pip install"
+alias piiu="pip install --user"
+alias pe="pipenv"
+alias pei="pipenv install"
+alias per="pipenv run"
+alias pes="pipenv shell"
+
+# docker
 alias dock="docker"
 alias dockc="docker-compose"
 
-# git aliases
+# git
 alias g="git"
 alias gst="git status"
 alias gl="git log --oneline"
 alias gd="git diff"
 alias ga="git add"
+alias gc="git commit"
 alias gcm="git commit -m"
 alias rcm="git commit --amend"
 alias gb="git branch"
