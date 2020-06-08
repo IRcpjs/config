@@ -46,3 +46,12 @@ if not functions -q fisher
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
 end
+
+function change_repository
+    if type -q ghq && type -q fzf
+        set -l to_repository (ghq list -p | fzf)
+        if test -n {$to_repository}
+            cd {$to_repository}
+        end
+    end
+end
