@@ -3,33 +3,29 @@ alias l="ls"
 alias :q="exit"
 alias tp="ping -c 3 google.com"
 
+# self-defined function
+alias cr="change_repository"
+
 # external tools
 alias ran="ranger"
-alias v="vim"
 alias vi="vim"
-alias gg="ghq get"
 alias s3="aws s3"
 
 # python
 alias python="python3"
 alias pip="pip3"
 alias py="python3"
-alias pii="pip install"
-alias piiu="pip install --user"
+alias py3="python3"
 alias pe="pipenv"
-alias pei="pipenv install"
-alias per="pipenv run"
-alias pes="pipenv shell"
-
-# docker
-alias dock="docker"
-alias dockc="docker-compose"
+alias prun="pipenv run"
+alias pshell="pipenv shell"
 
 # git
 alias g="git"
 alias gst="git status"
 alias gl="git log --oneline"
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias ga="git add"
 alias gc="git commit"
 alias gcm="git commit -m"
