@@ -3,3 +3,5 @@ completions/*
 functions/*
 fishd.*
 fish_variables
+
+!functions/keybindings.fish
