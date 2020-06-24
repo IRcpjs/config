@@ -38,7 +38,7 @@ end
 function change_repository
     if type -q ghq && type -q fzf
         set -l to_repository (ghq list -p | fzf)
-        if test -n {$to_repository}
+        if test -n "$to_repository"
             cd {$to_repository}
             commandline -f repaint
         end
