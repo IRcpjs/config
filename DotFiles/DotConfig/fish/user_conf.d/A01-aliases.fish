@@ -1,24 +1,22 @@
 # default
 alias l="ls"
-alias :q="exit"
-alias tp="ping -c 3 google.com"
-
-# self-defined function
-alias cr="change_repository"
+alias tp="ping -c 3"
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias configs="cd $HOME/Projects/github.com/IRcpjs/config"
 
 # external tools
 alias ran="ranger"
 alias vi="vim"
-alias s3="aws s3"
+alias cm="rclone"
+alias run="make run"
 
 # python
 alias python="python3"
-alias pip="pip3"
 alias py="python3"
-alias py3="python3"
-alias pe="pipenv"
-alias prun="pipenv run"
-alias pshell="pipenv shell"
+alias pip="pip3"
+alias act="pipenv shell"
 
 # git
 alias g="git"
@@ -36,7 +34,6 @@ alias gbd="git branch -d"
 alias gs="git switch"
 alias gsc="git switch -c"
 alias gm="git merge"
-alias gr="git restore"
 alias reset="git reset"
 alias push="git push"
 alias opush="git push origin"
