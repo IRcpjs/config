@@ -3,6 +3,8 @@
     editor = vim
     quotepath = false
     autocrlf = false
+[pull]
+    rebase = false
 [color]
     ui = auto
 [ghq]
