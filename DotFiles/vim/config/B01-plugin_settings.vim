@@ -4,6 +4,7 @@ command! -nargs=0 Fq call fzf#run({
 \   'sink': 'Vaffle',
 \})
 
+let g:lsp_signs_enabled =  0
 let g:previm_enable_realtime=1
 let g:sonictemplate_vim_template_dir=[expand("$VIMDIR/templates")]
 let g:vaffle_auto_cd = 1
