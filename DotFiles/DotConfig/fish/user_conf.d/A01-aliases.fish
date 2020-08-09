@@ -5,10 +5,12 @@ alias ..="cd .."
 alias ..2="cd ../.."
 alias ..3="cd ../../.."
 alias configs="cd $HOME/Projects/github.com/IRcpjs/config"
+alias windir="cd /mnt/c/Users/$USER"
 
 # external tools
 alias ran="ranger"
 alias vi="vim"
+alias v="vim ."
 alias cm="rclone"
 alias run="make run"
 
