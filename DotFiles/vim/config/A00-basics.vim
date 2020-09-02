@@ -39,3 +39,5 @@ augroup specificFile
     autocmd!
     autocmd BufNewFile,BufRead ~/.gitconfig.local setlocal filetype=gitconfig
 augroup END
+set t_u7=
+set t_RV=
