@@ -35,9 +35,5 @@ set title
 set showmatch
 set completeopt+=menuone
 let &shell= g:isWin ? 'powershell.exe' : '/bin/bash'
-augroup specificFile
-    autocmd!
-    autocmd BufNewFile,BufRead ~/.gitconfig.local setlocal filetype=gitconfig
-augroup END
 set t_u7=
 set t_RV=
