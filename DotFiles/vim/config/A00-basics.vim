@@ -17,6 +17,8 @@ set tabstop=4 softtabstop=4 shiftwidth=4
 augroup fileTypeIndent
     autocmd!
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2
+    autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+    autocmd FileType vue setlocal ts=2 sts=2 sw=2
 augroup END
 set hlsearch
 set ignorecase
