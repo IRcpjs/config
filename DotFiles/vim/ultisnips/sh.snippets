@@ -1,0 +1,31 @@
+snippet check_command "check command exist"
+if ${1:not_flag} (type ${2:command} >/dev/null 2>&1); then
+    ${3:code}
+fi
+endsnippet
+
+snippet check_command_double "check double command exist"
+if ${1:not_flag} (type ${2:command} >/dev/null 2>&1); then
+    ${3:code}
+elif ${4:not_flag} (type ${5:command} >/dev/null 2>&1); then
+    ${6:code}
+fi
+endsnippet
+
+snippet check_file "check file exist"
+if [ ${1:not_flag} -e ${2:file_path} ]; then
+    ${3:code}
+fi
+endsnippet
+
+snippet check_file_double "check double file exist"
+if [ ${1:not_flag} -e ${2:file_path} ]; then
+    ${3:code}
+elif [ ${4:not_flag} -e ${5:file_path} ]; then
+    ${6:code}
+fi
+endsnippet
+
+snippet download "download file"
+curl -fLo ${1:download_url} ${2:args}
+endsnippet

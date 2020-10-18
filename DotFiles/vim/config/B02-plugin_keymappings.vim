@@ -17,8 +17,3 @@ nnoremap <silent> [LSP-prefix]r :LspRename<CR>
 
 nmap ss <Plug>(vaffle-open-selected-split)
 nmap sv <Plug>(vaffle-open-selected-vsplit)
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \     "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-xmap <C-k>     <Plug>(neosnippet_expand_target)

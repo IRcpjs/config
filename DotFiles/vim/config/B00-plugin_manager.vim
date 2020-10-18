@@ -23,8 +23,11 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
-Plug 'Shougo/neosnippet.vim'
+if has('python3')
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+endif
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf'

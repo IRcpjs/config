@@ -10,17 +10,19 @@ let g:sonictemplate_vim_template_dir=[expand("$VIMDIR/templates")]
 let g:vaffle_auto_cd = 1
 let g:vaffle_open_selected_split_position = 'rightbelow'
 let g:vaffle_open_selected_vsplit_position = 'rightbelow'
-let g:neosnippet#snippets_directory=expand("$VIMDIR/snippets/")
-let g:neosnippet#disable_runtime_snippets = {'_' : 1,}
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
+if has('python3')
+    let g:UltiSnipsExpandTrigger="<c-k>"
+    let g:UltiSnipsJumpForwardTrigger="<c-n>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+    let g:UltiSnipsEditSplit="horizontal"
+    let g:UltiSnipsSnippetDirectories = [expand('$VIMDIR/ultisnips')]
 endif
 
 call asyncomplete#register_source(
-\   asyncomplete#sources#neosnippet#get_source_options({
-\   'name': 'neosnippet',
+\   asyncomplete#sources#ultisnips#get_source_options({
+\   'name': 'ultisnips',
 \   'whitelist': ['*'],
-\   'completor': function('asyncomplete#sources#neosnippet#completor'),
+\   'completor': function('asyncomplete#sources#ultisnips#completor'),
 \}))
 catch
 endtry

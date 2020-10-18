@@ -1,0 +1,13 @@
+snippet inf "infinite loop"
+while True:
+    ${1:code}
+endsnippet
+
+
+snippet draw_circle "draw circle with opencv"
+cv2.circle(${1:image}, (${2:x},${3:y}), 10, (${4:rgb}), -1)
+endsnippet
+
+snippet draw_rectangle "draw rectangle with opencv"
+cv2.rectangle(${1:image}, (${2:x1},${3:y1}), (${4:x2},${5:y2}), (${6:rgb}))
+endsnippet
