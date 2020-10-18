@@ -12,21 +12,23 @@ nnoremap sl <C-w>l
 nnoremap Y y$
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap <up> i<Up><End><CR><esc>
+nnoremap <down> i<End><CR><esc>
 nnoremap x "_x
-vnoremap x "_x
 nnoremap X "_X
+vnoremap x "_x
 vnoremap X "_X
 nnoremap s "_s
-vnoremap s "_s
 nnoremap S "_S
+vnoremap s "_s
 vnoremap S "_S
 inoremap jj <esc>
 inoremap <silent> <C-a> <esc>A
-nnoremap <up> i<Up><End><CR><esc>
 inoremap <up> <Up><End><CR>
-nnoremap <down> i<End><CR><esc>
 inoremap <down> <End><CR>
-tnoremap <C-t> <C-w>N
+tnoremap <C-n> <C-w>N
+tnoremap <C-x> <C-w><C-C>
+
 nnoremap <silent> [prefix]c <esc>ggVG"+y
 nnoremap <silent> [prefix]t :terminal ++close bash<CR>
 nnoremap <silent> [prefix]T :terminal ++close ++curwin bash<CR>
