@@ -18,6 +18,7 @@ Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 Plug 'PProvost/vim-ps1'
+Plug 'posva/vim-vue'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
