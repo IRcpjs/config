@@ -6,6 +6,11 @@ command! -nargs=0 Fq call fzf#run({
 
 let g:lsp_signs_enabled =  0
 let g:previm_enable_realtime=1
+if g:isWSL
+    let g:previm_open_cmd =
+                \ '/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
+    let g:previm_wsl_mode = 1
+endif
 let g:sonictemplate_vim_template_dir=[expand("$VIMDIR/templates")]
 let g:vaffle_auto_cd = 1
 let g:vaffle_open_selected_split_position = 'rightbelow'
