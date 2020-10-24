@@ -8,3 +8,6 @@ New-Item -Value $PWD\DotFiles\vim -Path $HOME -Name vimfiles -ItemType SymbolicL
 
 # create symboliclink of git
 New-Item -Value $PWD\DotFiles\gitconfig -Path $HOME -Name .gitconfig -ItemType SymbolicLink
+
+# create symboliclink of ideavim
+New-Item -Value $PWD\DotFiles\ideavimrc -Path $HOME -Name _ideavimrc -ItemType SymbolicLink
