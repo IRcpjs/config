@@ -1,5 +1,9 @@
 let g:isWin = has('win32')
-let g:isWSL = system('uname -r') =~ ".*microsoft.*" ? 1 : 0
+if has('unix') && system('uname -r') =~ ".*microsoft.*"
+    let g:isWSL=1
+else
+    let g:isWSL=0
+endif
 if g:isWin
     let $VIMDIR=expand("$HOME/vimfiles")
 else
