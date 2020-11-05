@@ -22,6 +22,18 @@ if has('python3')
     let g:UltiSnipsEditSplit="horizontal"
     let g:UltiSnipsSnippetDirectories = [expand('$VIMDIR/ultisnips')]
 endif
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead',
+      \ },
+\ }
+
+
 
 call asyncomplete#register_source(
 \   asyncomplete#sources#ultisnips#get_source_options({
