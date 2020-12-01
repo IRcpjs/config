@@ -4,6 +4,7 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
+font = Ricty Bold 14
 font = DejaVuSansMono 12
 #fullscreen = true
 #icon_name = terminal
