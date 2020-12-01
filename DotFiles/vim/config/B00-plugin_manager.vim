@@ -1,11 +1,11 @@
-let s:nowShell = &shell
-let &shell= g:isWin ? 'cmd.exe' : '/bin/bash'
+let s:curl_cmd = g:isWin ? 'curl.exe' : 'curl'
 if empty(glob("$VIMDIR/autoload/plug.vim"))
-    call system("curl -fLo " . expand("$VIMDIR/autoload/plug.vim") . " --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+    call system(
+                \ s:curl_cmd . " -fLo " . expand("$VIMDIR/autoload/plug.vim") .
+                \ " --create-dirs https://raw.githubusercontent.com" .
+                \ "/junegunn/vim-plug/master/plug.vim")
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-let &shell = s:nowShell
 
 call plug#begin(expand("$VIMDIR/bundle"))
 Plug 'vim-jp/vimdoc-ja'

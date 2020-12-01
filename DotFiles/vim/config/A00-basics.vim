@@ -30,6 +30,5 @@ set pumheight=5
 set title
 set showmatch
 set completeopt+=menuone
-let &shell= g:isWin ? 'powershell.exe' : '/bin/bash'
 set t_u7=
 set t_RV=
