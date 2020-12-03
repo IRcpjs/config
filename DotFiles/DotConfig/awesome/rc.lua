@@ -91,8 +91,9 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open browser", "google-chrome-stable"},
-                                    { "open terminal", terminal }
+                                    { "logout", function() awesome.quit() end },
+                                    { "reboot", "reboot" },
+                                    { "shutdown", "shutdown -h now" },
                                   }
                         })
 
@@ -172,8 +173,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     layouts = awful.layout.layouts
     tags = {
-        name = { "main", "browser", "float", "stack" },
-        layout = { layouts[2],layouts[2],layouts[1],layouts[1],}
+        name = { "tile1", "tile2", "tile3", "float1", "float2" },
+        layout = { layouts[2],layouts[2],layouts[2],layouts[1],layouts[1] }
     }
     awful.tag(tags.name, s, tags.layout)
 
@@ -202,7 +203,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
