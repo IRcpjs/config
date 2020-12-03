@@ -1,0 +1,8 @@
+configuration {
+	modi: "window,favorite:~/.config/rofi/mode/favorite.sh,drun,ssh,config:~/.config/rofi/mode/config.sh";
+	sidebar-mode: true;
+	hide-scrollbar: true;
+	theme: "/usr/share/rofi/themes/Arc-Dark.rasi";
+	kb-mode-next: "Alt+n";
+	kb-mode-previous: "Alt+p";
+}

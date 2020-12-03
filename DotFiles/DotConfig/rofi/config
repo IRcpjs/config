@@ -1,4 +1,4 @@
-rofi.modi:  drun,system:~/.config/rofi/rofi_system.sh
+rofi.modi:  favorite:~/.config/rofi/mode/favorite.sh,drun,ssh,config:~/.config/rofi/mode/config.sh
 rofi.sidebar-mode: true
 rofi.hide-scrollbar: true
 rofi.kb-mode-previous: Alt+n
