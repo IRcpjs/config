@@ -25,6 +25,7 @@ set fileencodings=utf-8,iso-2022-jp,enc-jp,sjis
 set fileformats=unix,dos,mac
 set backspace=indent,eol,start
 set helplang=ja,en
+set spelllang=en,cjk
 set matchtime=1
 set pumheight=5
 set title

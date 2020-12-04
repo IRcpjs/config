@@ -32,6 +32,7 @@ tnoremap <C-x> <C-w><C-C>
 nnoremap <silent> [prefix]c <esc>ggVG"+y
 nnoremap <silent> [prefix]e :edit .<CR>
 nnoremap <silent> [prefix]h :nohlsearch<CR>
+nnoremap <silent> [prefix]s :set spell!<CR>
 if g:isWin
     nnoremap <silent> [prefix]t :terminal ++close pwsh<CR>
     nnoremap <silent> [prefix]T :terminal ++close ++curwin pwsh<CR>
