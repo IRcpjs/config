@@ -30,7 +30,12 @@ tnoremap <C-n> <C-w>N
 tnoremap <C-x> <C-w><C-C>
 
 nnoremap <silent> [prefix]c <esc>ggVG"+y
-nnoremap <silent> [prefix]t :terminal ++close bash<CR>
-nnoremap <silent> [prefix]T :terminal ++close ++curwin bash<CR>
 nnoremap <silent> [prefix]e :edit .<CR>
 nnoremap <silent> [prefix]h :nohlsearch<CR>
+if g:isWin
+    nnoremap <silent> [prefix]t :terminal ++close pwsh<CR>
+    nnoremap <silent> [prefix]T :terminal ++close ++curwin pwsh<CR>
+else
+    nnoremap <silent> [prefix]t :terminal ++close bash<CR>
+    nnoremap <silent> [prefix]T :terminal ++close ++curwin bash<CR>
+endif

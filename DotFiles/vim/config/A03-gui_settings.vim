@@ -5,6 +5,7 @@ endif
 if !exists("g:colors_name") || g:colors_name != "apprentice"
     colorscheme apprentice
 endif
+setglobal guifont=Myrica_M:h12:cSHIFTJIS:qDRAFT
 setglobal cmdheight=1
 setglobal guioptions+=c
 setglobal guioptions-=m
