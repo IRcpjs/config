@@ -1,8 +1,9 @@
 # hide error message  when file exist
 $ErrorActionPreference = "silentlycontinue"
 
-# create symboliclink of powershell7
-New-Item -Value $PWD\windows\profile.ps1 -Path $HOME\Documents\WindowsPowerShell -Name profile.ps1 -ItemType SymbolicLink
+# create symboliclink of powershell core
+mkdir $HOME\Documents\PowerShell
+New-Item -Value $PWD\windows\profile.ps1 -Path $HOME\Documents\PowerShell -Name profile.ps1 -ItemType SymbolicLink
 
 # create symboliclink of vim
 New-Item -Value $PWD\dotfiles\vimrc -Path $HOME -Name _vimrc -ItemType SymbolicLink
