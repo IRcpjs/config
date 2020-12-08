@@ -3,8 +3,10 @@ command! -nargs=0 Fq call fzf#run({
 \   'source': 'ghq list --full-path',
 \   'sink': 'Vaffle',
 \})
-
-let g:lsp_signs_enabled =  0
+let g:lsp_highlights_enabled = 0
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
 let g:previm_enable_realtime=1
 if g:isWSL
     let g:previm_open_cmd =
