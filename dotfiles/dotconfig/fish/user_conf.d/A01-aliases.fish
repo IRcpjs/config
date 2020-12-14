@@ -1,5 +1,6 @@
 # default
 alias l="ls"
+alias cl="clear"
 alias tp="ping -c 3"
 alias ..="cd .."
 alias ..2="cd ../.."
