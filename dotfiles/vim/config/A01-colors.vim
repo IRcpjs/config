@@ -1,6 +1,10 @@
 syntax enable
-set termguicolors
-let s:curl_cmd = g:isWin ? 'curl.exe' : 'curl'
+if g:isWin
+    let s:curl_cmd = 'curl.exe'
+    set termguicolors
+else
+    let s:curl_cmd = 'curl'
+endif
 
 if empty(glob("$VIMDIR/colors/apprentice.vim"))
     call system(
