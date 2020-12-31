@@ -14,6 +14,20 @@ else
     echo "yay command exist. skip installing homebrew"
 fi
 
-for pack in ${brew_packages[@]};do
-    yay -S --noconfirm --sudoloop ${pack}
+yay_not_installed=()
+echo "check installed packages"
+for pack in ${yay_packages[@]};do
+    if yay -Qs ${pack} >/dev/null; then
+        echo "${pack} is installed. skip"
+    else
+        echo "${pack} is not installed."
+        yay_not_installed=("${yay_not_installed[@]}" ${pack})
+    fi
 done
+
+if test ${#yay_not_installed[@]} -gt 0; then
+    echo "install packages"
+    yay -S --noconfirm --sudoloop ${yay_not_installed}
+else
+    echo "all packages installed"
+fi
