@@ -1,9 +1,42 @@
 $scoop_packages = @(
-    'sudo'
-    'fzf'
-    'ghq'
-    'make'
 )
+
+$chocolatey_packages = @(
+)
+
+
+function install_scoop_packages {
+    echo "install scoop packages"
+    if (-Not(gcm scoop -ea SilentlyContinue)){
+        Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+    }
+    foreach( $package in $scoop_packages ){
+        if (scoop info $package | sls "Installed: No"){
+            echo "${package} is not installed. install ${package}"
+            scoop install $package
+        }else{
+            echo "$package is installed or can't find manifest. skip"
+        }
+    }
+}
+
+function install_choco_packages {
+    echo "install chocolatey packages"
+    if (-Not(gcm choco -ea SilentlyContinue)){
+        Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+    }
+    foreach( $package in $chocolatey_packages){
+        if (-Not(choco list -l $package | sls  "(chocolatey|packages installed)" -NotMatch)){
+            echo "${package} is not installed. install ${package}"
+            cinst -y $package
+        }else{
+            echo "$package is installed. skip"
+        }
+    }
+}
+
+install_scoop_packages
+install_choco_packages
 
 $default_apps = @(
  'Microsoft.Microsoft3DViewer',
@@ -48,15 +81,4 @@ function remove_default_applications {
         Get-AppxPackage $app | Remove-AppxPackage
     }
 }
-
-function install_scoop_packages {
-    if !(gcm scoop -ea SilentlyContinue){
-        Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-    }
-    foreach( $package in $scoop_packages ){
-        scoop install $package
-    }
-}
-
 remove_default_applications
-install_scoop_packages
