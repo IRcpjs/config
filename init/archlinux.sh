@@ -2,6 +2,38 @@
 set -e
 
 yay_packages=(
+    # require of Desktop Environment
+    "ntfs-3g"
+    "vi"
+    "xorg"
+    "lightdm"
+    "lightdm-gtk-greeter"
+    "awesome"
+    "alsa-utils"
+    "pulseaudio"
+    "pavucontrol"
+    "google-chrome"
+    "termite"
+    "ttf-dejavu"
+    "otf-ipafont"
+    "ttf-ricty"
+    "fcitx"
+    "fcitx-configtool"
+    "fcitx-mozc"
+    # utility(CLI)
+    "fish"
+    "vim"
+    "rclone"
+    "ghq"
+    "fzf"
+    "trash-cli"
+    # utility(GUI)
+    "keepassxc"
+    "rofi"
+    # media viewer
+    "sxiv"
+    "vlc"
+    "evince"
 )
 
 if !(type yay> /dev/null 2>&1); then
