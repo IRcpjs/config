@@ -1,7 +1,27 @@
 $scoop_packages = @(
+    "sudo"
+    "rclone"
+    "python"
+    "which"
+    "make"
 )
 
 $chocolatey_packages = @(
+    "7zip"
+    "git"
+    "autohotkey"
+    "google-backup-and-sync"
+    "discord"
+    "googlechrome"
+    "jetbrainstoolbox"
+    "line"
+    "keepassxc"
+    "visualstudio2019community"
+    "sumatrapdf"
+    "steam"
+    "powershell-core"
+    "spotify"
+    "microsoft-windows-terminal"
 )
 
 
