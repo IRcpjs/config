@@ -1,3 +1,7 @@
+$env:GOPATH="$HOME\.go"
+$env:PYTHONUSERBASE="$HOME\.local"
+$env:PATH="$env:PATH;$env:GOPATH\bin;$env:PYTHONUSERBASE\bin"
+
 Set-Alias -Force cl clear
 Set-Alias -Force .. cd_parent
 Set-Alias -Force ..2 cd_parent2

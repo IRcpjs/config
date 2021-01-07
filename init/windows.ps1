@@ -4,6 +4,9 @@ $scoop_packages = @(
     "python"
     "which"
     "make"
+    "go"
+    "fzf"
+    "jq"
 )
 
 $chocolatey_packages = @(
@@ -78,8 +81,16 @@ function clone_manual_build_repository {
     }
 }
 
+function install_golang_packages {
+    if (-Not(Get-Command go -ea SilentlyContinue)){
+        return
+    }
+    go get -u (Get-Content .\golang_packages.txt | Select-String -NotMatch -Pattern ^#)
+}
+
 install_scoop_packages
 install_choco_packages
+install_golang_packages
 clone_manual_build_repository
 
 $default_apps = @(
