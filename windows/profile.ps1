@@ -26,10 +26,12 @@ Set-Alias -Force opush git_opush
 Set-Alias -Force pull git_pull
 Set-Alias -Force fetch git_fetch
 Set-Alias -Force clone git_clone
+Set-Alias -Force vsenv Activate-VSEnv
+Set-Alias -Force ahk run_ahk_script
 
-function cd_parent { cd .. }
-function cd_parent2 { cd ..\.. }
-function cd_parent3 { cd ..\..\.. }
+function cd_parent { Set-Location .. }
+function cd_parent2 { Set-Location ..\.. }
+function cd_parent3 { Set-Location ..\..\.. }
 function test_ping { ping -n 3 $args }
 function open_vim { gvim . }
 function pipenv_activate { pipenv shell }
@@ -54,3 +56,10 @@ function git_opush { git push origin $args }
 function git_pull { git pull $args }
 function git_fetch { git fetch $args }
 function git_clone { git clone $args }
+function run_ahk_script { AutoHotkey.exe $args }
+function Activate-VSEnv {
+  $installPath = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -version 16.0 -property installationpath
+  Import-Module (Join-Path $installPath "Common7\Tools\Microsoft.VisualStudio.DevShell.dll")
+  Enter-VsDevShell -VsInstallPath $installPath -SkipAutomaticLocation
+  $env:path += ";" + $installPath + "\VC\Tools\Llvm\bin"
+}
