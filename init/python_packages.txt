@@ -1,0 +1,3 @@
+# python package list
+pipenv
+python-language-server

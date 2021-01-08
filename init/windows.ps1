@@ -88,9 +88,17 @@ function install_golang_packages {
     go get -u (Get-Content .\golang_packages.txt | Select-String -NotMatch -Pattern ^#)
 }
 
+function install_python_packages {
+    if (-Not(Get-Command python -ea SilentlyContinue)){
+        return
+    }
+    pip install --user (Get-Content .\python_packages.txt | Select-String -NotMatch -Pattern ^#)
+}
+
 install_scoop_packages
 install_choco_packages
 install_golang_packages
+install_python_packages
 clone_manual_build_repository
 
 $default_apps = @(
