@@ -34,6 +34,10 @@ yay_packages=(
     "sxiv"
     "vlc"
     "evince"
+    # programming language
+    "python"
+    "python-pip"
+    "go"
 )
 
 if !(type yay> /dev/null 2>&1); then
@@ -62,4 +66,13 @@ if test ${#yay_not_installed[@]} -gt 0; then
     yay -S --noconfirm --sudoloop ${yay_not_installed}
 else
     echo "all packages installed"
+fi
+
+echo "install python packages"
+if (type pip > /dev/null 2>&1); then
+    pip install --user $(cat python_packages.txt | grep -v "^#" )
+fi
+echo "install golang packages"
+if (type go > /dev/null 2>&1); then
+    go get -u $(cat golang_packages.txt | grep -v "^#" )
 fi
